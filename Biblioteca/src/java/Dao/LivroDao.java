@@ -6,6 +6,9 @@ package Dao;
 import Model.Livros;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,6 +17,8 @@ import java.sql.PreparedStatement;
 public class LivroDao {
     Connection conexao;
     PreparedStatement pstm;
+    ResultSet rs;
+    ArrayList<Livros> ALivros = new ArrayList<>();
     
     
     public LivroDao(){
@@ -34,8 +39,31 @@ public class LivroDao {
             pstm.execute();
             pstm.close();
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
         }
+    }
+    
+    public ArrayList readyBook(){
+        String sql = "select * from livro";
+        try {
+            pstm = conexao.prepareStatement(sql);
+            rs = pstm.executeQuery();
+            
+            while(rs.next()){
+                Livros livro = new Livros();
+                livro.setId_livro(rs.getInt("id_livro"));
+                livro.setNome(rs.getString("nome"));
+                livro.setAutor(rs.getString("autor"));
+                livro.setEditora(rs.getString("editora"));
+                livro.setPaginas(rs.getString("paginas"));
+                
+                ALivros.add(livro);
+                
+            }
+        } catch (SQLException e) {
+        }
+        
+        return ALivros;
     }
     
 }
