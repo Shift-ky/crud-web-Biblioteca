@@ -13,11 +13,12 @@ import java.sql.SQLException;
  */
 public class ConecaoFactory {
     
-    Connection connection;
+    Connection connection = null;
     
     public Connection conexaoBd(){
+        String url = "jdbc:mysql://localhost:3306/biblioteca?user=root&password=";
         try {
-            connection = (Connection) DriverManager.getConnection("jdbc:/mysql://localhost/biblioteca", "root", "");
+           connection = (Connection) DriverManager.getConnection(url);
         } catch (SQLException e) {
         }
         

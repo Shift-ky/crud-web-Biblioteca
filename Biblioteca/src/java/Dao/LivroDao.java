@@ -22,7 +22,7 @@ public class LivroDao {
     }
     
     public void createBook(Livros livro){
-        String sql = "insert into livro(nome,autor,editora,paginas) vales(?,?,?,?)";
+        String sql = "insert into livro(nome,autor,editora,paginas) value(?,?,?,?)";
         
         try {
             pstm = conexao.prepareStatement(sql);
@@ -33,6 +33,7 @@ public class LivroDao {
             
             pstm.execute();
             pstm.close();
+            
         } catch (Exception e) {
         }
     }

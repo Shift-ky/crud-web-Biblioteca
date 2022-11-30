@@ -4,6 +4,8 @@
     Author     : famil
 --%>
 
+<%@page import="Dao.LivroDao"%>
+<%@page import="Model.Livros"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +14,19 @@
         <title>Cadastrado com Sucesso</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Cadastrado com sucesso</h1>
+
+
+        <%
+            Livros livro = new Livros();
+      
+            livro.setNome(request.getParameter("nome"));
+            livro.setAutor(request.getParameter("autor"));
+            livro.setEditora(request.getParameter("editora"));
+            livro.setPaginas(request.getParameter("paginas"));
+            
+            LivroDao objLivro = new LivroDao();
+            objLivro.createBook(livro);
+        %>
     </body>
 </html>
