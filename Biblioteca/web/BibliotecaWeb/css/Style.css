@@ -131,3 +131,50 @@ body{
     transition: 0.9s;
 }
 
+
+.container-login{
+    width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    
+}
+.login{
+padding: 10px;
+    width: 300px;
+    height: 500;
+    
+    background-color: rgb(241, 130, 245);
+    border-radius: 8px;
+}
+.login label{
+    margin-bottom: -5px;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+.login input{
+    width: 93%;
+    margin-top: 10px;
+    margin-left: 10px;
+
+}
+.login button{
+    margin-left: 10px;
+    width: 93%;
+    height: 25px;
+    border-radius: 10px;
+    background-color: blueviolet;
+    color: black;
+}
+.login button:hover{
+    background-color: black;
+    color: blueviolet;
+    transition: 0.8s;
+}
+
+#links-cadastrar{
+
+    
+}
+
