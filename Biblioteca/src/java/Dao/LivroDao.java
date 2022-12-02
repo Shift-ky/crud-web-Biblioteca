@@ -32,8 +32,8 @@ public class LivroDao {
         try {
             pstm = conexao.prepareStatement(sql);
             pstm.setString(1, livro.getNome());
-            pstm.setString(2, livro.getEditora());
-            pstm.setString(3, livro.getAutor());
+             pstm.setString(2, livro.getAutor());
+            pstm.setString(3, livro.getEditora());
             pstm.setString(4, livro.getPaginas());
             
             pstm.execute();
@@ -74,7 +74,7 @@ public class LivroDao {
             pstm.setInt(1,livro.getId_livro());
             pstm.execute();
             pstm.close();
-        } catch (Exception e) {
+        } catch (SQLException e) {
         }
         
     }
@@ -93,8 +93,38 @@ public class LivroDao {
             pstm.execute();
             pstm.close();
                     
-        } catch (Exception e) {
+        } catch (SQLException e) {
         }
+    }
+    
+    public Livros getRegistroById(int id){
+         Livros livro = null;
+       
+        String sql = "select * from livro where id_livro=?";
+        try {
+     
+            pstm = conexao.prepareStatement(sql);
+            
+            pstm.setInt(1, id);
+            rs = pstm.executeQuery();
+ 
+            
+            while(rs.next()){
+                livro = new Livros();
+                
+                livro.setId_livro(rs.getInt("id_livro"));
+                livro.setAutor(rs.getString("autor"));
+                livro.setNome(rs.getString("nome"));
+                livro.setEditora(rs.getString("editora"));
+                livro.setPaginas(rs.getString("paginas"));
+                
+                
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+ 
+        }
+        return livro;
     }
     
 }

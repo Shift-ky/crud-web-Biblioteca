@@ -18,14 +18,16 @@
         
         <%
             Livros livro = new Livros();
-          
+            livro.setId_livro(Integer.parseInt(request.getParameter("id")));
+            livro.setNome(request.getParameter("nome"));
             livro.setAutor(request.getParameter("autor"));
             livro.setEditora(request.getParameter("editora"));
-            livro.setNome(request.getParameter("nome"));
             livro.setPaginas(request.getParameter("paginas"));
             
             LivroDao objLivro = new LivroDao();
             objLivro.updateLivro(livro);
+            
+            response.sendRedirect("Listar.jsp");
         %>
     </body>
 </html>

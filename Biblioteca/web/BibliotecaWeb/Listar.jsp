@@ -28,7 +28,6 @@
     margin: 0;
     padding: 0;
     border: none;
-    overflow: hidden;
 }
 body{
     background-image:url(https://github.com/Shift-ky/imagens/blob/main/sites-pequenos/books-g749120191_1920.jpg?raw=true);
@@ -53,6 +52,7 @@ body{
     border-radius: 10px;
     text-decoration: none;
     color: rgb(247, 11, 11);
+    
 
 }
 .container .deletar:hover{

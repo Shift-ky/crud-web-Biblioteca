@@ -14,7 +14,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1><span> Livro "<%=request.getParameter("nome")%>" </span> Deletado</h1>
         
         <%
             Livros livro = new Livros();
@@ -24,7 +23,7 @@
             
             objLivro.deleteBook(livro);
             
-                
+             response.sendRedirect("Listar.jsp");
         %>
     </body>
 </html>
