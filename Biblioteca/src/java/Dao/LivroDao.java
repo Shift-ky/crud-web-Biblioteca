@@ -80,7 +80,7 @@ public class LivroDao {
     }
     
     public void updateLivro(Livros livro){
-        String sql = "UPDATE livro SET nome=?,autor=?,editora=?,paginas=? WHERE nome =?";
+        String sql = "UPDATE livro SET nome=?,autor=?,editora=?,paginas=? WHERE id_livro =?";
         
         try {
             pstm = conexao.prepareStatement(sql);
@@ -88,7 +88,7 @@ public class LivroDao {
             pstm.setString(2,livro.getAutor());
             pstm.setString(3,livro.getEditora());
             pstm.setString(4,livro.getPaginas());
-            pstm.setString(6,livro.getNome());
+            pstm.setInt(5,livro.getId_livro());
             
             pstm.execute();
             pstm.close();
