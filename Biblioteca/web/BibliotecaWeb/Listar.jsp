@@ -184,7 +184,7 @@ body{
                         <td>${livro.getAutor()}</td>
                         <td>${livro.getEditora()}</td>
                         <td>${livro.getPaginas()}</td>
-                    <td class="ultimo"><a class="deletar" href="#">DELETAR</a> <a class="atualizar" href="#">ATUALIZAR</a> </td>
+                        <td class="ultimo"><a class="deletar" href="deletar.jsp?id=${livro.getId_livro()}&nome=${livro.getNome()}</td>">DELETAR</a> <a class="atualizar" href="alterar.jsp?id=${livro.getId_livro()}&nome=${livro.getNome()}&autor=${livro.getAutor()}&editora=${livro.getEditora()}&paginas=${livro.getPaginas()} ">ATUALIZAR</a></td>
                   </tr>
                   </c:forEach>
                 </tbody>

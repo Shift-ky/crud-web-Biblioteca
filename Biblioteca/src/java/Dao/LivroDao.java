@@ -66,4 +66,35 @@ public class LivroDao {
         return ALivros;
     }
     
+    public void deleteBook(Livros livro){
+        String sql = "DELETE FROM livro WHERE id_livro=?";
+        
+        try {
+            pstm = conexao.prepareStatement(sql);
+            pstm.setInt(1,livro.getId_livro());
+            pstm.execute();
+            pstm.close();
+        } catch (Exception e) {
+        }
+        
+    }
+    
+    public void updateLivro(Livros livro){
+        String sql = "UPDATE livro SET nome=?,autor=?,editora=?,paginas=? WHERE nome =?";
+        
+        try {
+            pstm = conexao.prepareStatement(sql);
+            pstm.setString(1,livro.getNome());
+            pstm.setString(2,livro.getAutor());
+            pstm.setString(3,livro.getEditora());
+            pstm.setString(4,livro.getPaginas());
+            pstm.setString(6,livro.getNome());
+            
+            pstm.execute();
+            pstm.close();
+                    
+        } catch (Exception e) {
+        }
+    }
+    
 }
